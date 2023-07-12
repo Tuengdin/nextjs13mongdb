@@ -44,3 +44,15 @@ export const POST = async (req: Request, res: Response) => {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 };
+
+export const DELETE = async (req: NextRequest, res: Response) => {
+  try {
+    const id = req.nextUrl.searchParams.get("id");
+
+    await connectMongoDB();
+    await Cadet.findByIdAndDelete(id);
+    return NextResponse.json({ message: " Cadet deleted" }, { status: 200 });
+  } catch (err) {
+    return NextResponse.json({ message: "Error", err }, { status: 500 });
+  }
+};

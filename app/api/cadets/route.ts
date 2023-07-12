@@ -56,3 +56,36 @@ export const DELETE = async (req: Request, res: Response) => {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 };
+
+export const PUT = async (req: Request) => {
+  try {
+    const id = req.url.split("id=")[1];
+    await connectMongoDB();
+    const {
+      login,
+      level,
+      firstName,
+      lastName,
+      bhIn,
+      poolMonth,
+      poolYear,
+      email,
+      blackholedAt,
+    } = await req.json();
+    // await connectMongoDB();
+    await Cadet.findByIdAndUpdate(id, {
+      login,
+      level,
+      firstName,
+      lastName,
+      bhIn,
+      poolMonth,
+      poolYear,
+      email,
+      blackholedAt,
+    });
+    return NextResponse.json({ message: "Cadet updated" }, { status: 200 });
+  } catch (err) {
+    return NextResponse.json({ message: "Error", err }, { status: 500 });
+  }
+};

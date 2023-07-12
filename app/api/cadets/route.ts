@@ -12,3 +12,35 @@ export const GET = async () => {
     return NextResponse.json({ message: "Error, err" }, { status: 500 });
   }
 };
+
+export const POST = async (req: Request, res: Response) => {
+  //   POST REQUEST to create a new Cadet
+  try {
+    const {
+      login,
+      level,
+      firstName,
+      lastName,
+      bhIn,
+      poolMonth,
+      poolYear,
+      email,
+      blackholedAt,
+    } = await req.json();
+    await connectMongoDB();
+    const cadets = await Cadet.create({
+      login,
+      level,
+      firstName,
+      lastName,
+      bhIn,
+      poolMonth,
+      poolYear,
+      email,
+      blackholedAt,
+    });
+    return NextResponse.json({ message: "Cadet created" }, { status: 201 });
+  } catch (err) {
+    return NextResponse.json({ message: "Error", err }, { status: 500 });
+  }
+};

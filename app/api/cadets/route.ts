@@ -45,9 +45,9 @@ export const POST = async (req: Request, res: Response) => {
   }
 };
 
-export const DELETE = async (req: NextRequest, res: Response) => {
+export const DELETE = async (req: Request, res: Response) => {
   try {
-    const id = req.nextUrl.searchParams.get("id");
+    const id = req.url.split("id=")[1];
 
     await connectMongoDB();
     await Cadet.findByIdAndDelete(id);

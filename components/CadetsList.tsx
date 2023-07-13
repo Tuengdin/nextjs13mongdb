@@ -4,7 +4,7 @@ import { HiPencilAlt } from "react-icons/hi";
 
 const CadetsList = () => {
   return (
-    <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
+    <div className="bg-slate-200/75 p-4  my-3 flex justify-between gap-5 items-start">
       <div>
         <h2 className="font-bold text-2xl">Cadets Login</h2>
         <div>Firstname</div>

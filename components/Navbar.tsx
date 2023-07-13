@@ -3,7 +3,7 @@ import Link from "next/link";
 type Props = {};
 const Navbar = (props: Props) => {
   return (
-    <nav className="flex justify-between items-center bg-slate-800 px-8 py-3">
+    <nav className="flex justify-between items-center bg-slate-900 px-8 py-3">
       <Link className="font-bold text-white" href={"/"}>
         TdinCoding.
       </Link>

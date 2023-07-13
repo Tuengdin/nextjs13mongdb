@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.my-custom-bg-class {
+  background-image: url(../img/bg1.jpg);
+}

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "fixed",
+            width: "100vw",
+            height: "100vh",
+          }}
+        >
+          <Image src="/bg2.jpeg" alt="BG" layout="fill" objectFit="cover" />
+        </div>
         <div className="max-w-3xl mx-auto p-4">
           <Navbar />
           {children}

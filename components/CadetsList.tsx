@@ -2,27 +2,59 @@ import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 
-const CadetsList = () => {
-  return (
-    <div className="bg-slate-200/75 p-4  my-3 flex justify-between gap-5 items-start">
-      <div>
-        <h2 className="font-bold text-2xl">Cadets Login</h2>
-        <div>Firstname</div>
-        <div>Lastname</div>
-        <div>Email</div>
-        <div>Level</div>
-        <div>BH in</div>
-        <div>Pool Month</div>
-        <div>Pool Year</div>
-        <div>Blackholed at</div>
-      </div>
-      <div className="flex gap-2">
-        <RemoveBtn />
-        <Link href={"/editCadet/123"}>
-          <HiPencilAlt size={20} />
-        </Link>
-      </div>
-    </div>
-  );
+type CadetType = {
+  id: String;
+  login: String;
+  level: String;
+  firstName: String;
+  lastName: String;
+  bhIn: String;
+  poolMonth: String;
+  poolYear: String;
+  email: String;
+  blackholedAt: String;
 };
-export default CadetsList;
+const getCadets = async () => {
+  try {
+    // const res = await fetch("http://localhost:3000/api/cadets", {
+    const res = await fetch("https://nextjs13mongodb.vercel.app/api/cadets", {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch cadets");
+    }
+    return res.json();
+  } catch (err) {
+    console.log("Error loading cadets: ", err);
+  }
+};
+
+export default async function CadetsList() {
+  const { cadets } = await getCadets();
+
+  return (
+    <>
+      {cadets.map((c: any) => (
+        <div className="bg-slate-200/75 p-4  my-3 flex justify-between gap-5 items-start">
+          <div>
+            <h2 className="font-bold text-2xl">{c.login}</h2>
+            <div>{c.firstName}</div>
+            <div>{c.lastName}</div>
+            <div>{c.email}</div>
+            <div>{c.level}</div>
+            <div>{c.bhIn}</div>
+            <div>{c.poolMonth}</div>
+            <div>{c.poolYear}</div>
+            <div>{c.blackholedAt}</div>
+          </div>
+          <div className="flex gap-2">
+            <RemoveBtn />
+            <Link href={`/editCadet/${c._id}`}>
+              <HiPencilAlt size={24} />
+            </Link>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+}

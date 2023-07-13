@@ -36,7 +36,7 @@ export default async function CadetsList() {
     <>
       {cadets.map((c: any) => (
         <div className="bg-slate-200/75 p-4  my-3 flex justify-between gap-5 items-start">
-          <div key={cadets.id}>
+          <div key={c.id}>
             <h2 className="font-bold text-2xl">{c.login}</h2>
             <div>{c.firstName}</div>
             <div>{c.lastName}</div>

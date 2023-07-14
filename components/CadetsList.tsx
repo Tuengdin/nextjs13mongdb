@@ -52,7 +52,7 @@ export default async function CadetsList() {
           </div>
           <div className="flex gap-2">
             <RemoveBtn />
-            <Link href={`/editCadet/${c._id}`}>
+            <Link href={`/EditCadet/123`}>
               <HiPencilAlt size={24} />
             </Link>
           </div>

@@ -8,9 +8,9 @@ export const GET = async (req: Request, res: Response) => {
   try {
     await connectMongoDB();
     const cadets = await Cadet.find();
-    return Response.json({ cadets }, { status: 201 });
+    return NextResponse.json({ cadets }, { status: 201 });
   } catch (err) {
-    return Response.json({ message: "Error, err" }, { status: 500 });
+    return NextResponse.json({ message: "Error, err" }, { status: 500 });
   }
 };
 

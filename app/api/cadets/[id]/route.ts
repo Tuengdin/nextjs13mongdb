@@ -1,4 +1,5 @@
 import connectMongoDB from "@/libs/mongodb";
+import { NextRequest, NextResponse } from "next/server";
 import Cadet from "@/models/cadet";
 
 export const GET = async (req: Request, res: Response) => {
@@ -9,9 +10,9 @@ export const GET = async (req: Request, res: Response) => {
     console.log(id);
     await connectMongoDB();
     const cadet = await Cadet.findOne({ _id: id }).exec();
-    return Response.json({ cadet }, { status: 202 });
+    return NextResponse.json({ cadet }, { status: 202 });
   } catch (err) {
-    return Response.json({ message: "Error, err" }, { status: 500 });
+    return NextResponse.json({ message: "Error, err" }, { status: 500 });
   }
 };
 
@@ -45,8 +46,8 @@ export const POST = async (req: Request) => {
       email,
       blackholedAt,
     });
-    return Response.json({ message: "Cadet updated" }, { status: 200 });
+    return NextResponse.json({ message: "Cadet updated" }, { status: 200 });
   } catch (err) {
-    return Response.json({ message: "Error, err" }, { status: 500 });
+    return NextResponse.json({ message: "Error, err" }, { status: 500 });
   }
 };

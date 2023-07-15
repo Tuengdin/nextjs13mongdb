@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { POST } from "../api/cadets/route";
 import { useRouter } from "next/navigation";
 
 type Props = {};

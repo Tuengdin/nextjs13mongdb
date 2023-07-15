@@ -16,8 +16,8 @@ import { HiPencilAlt } from "react-icons/hi";
 // };
 const getCadets = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/cadets", {
-      // const res = await fetch("https://nextjs13mongodb.vercel.app/api/cadets", {
+    // const res = await fetch("http://localhost:3000/api/cadets", {
+    const res = await fetch("https://nextjs13mongodb.vercel.app/api/cadets", {
       cache: "no-store",
     });
     if (!res.ok) {

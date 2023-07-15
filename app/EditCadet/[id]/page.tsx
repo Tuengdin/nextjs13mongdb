@@ -36,8 +36,8 @@ const EditCadet = (props: Props) => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/api/cadets", {
-        // const res = await fetch("https://nextjs13mongodb.vercel.app/api/cadets", {
+      // const res = await fetch("http://localhost:3000/api/cadets", {
+      const res = await fetch("https://nextjs13mongodb.vercel.app/api/cadets", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

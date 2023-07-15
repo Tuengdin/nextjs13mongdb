@@ -2,22 +2,22 @@ import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 
-type CadetType = {
-  id: String;
-  login: String;
-  level: String;
-  firstName: String;
-  lastName: String;
-  bhIn: String;
-  poolMonth: String;
-  poolYear: String;
-  email: String;
-  blackholedAt: String;
-};
+// type CadetType = {
+//   id: String;
+//   login: String;
+//   level: String;
+//   firstName: String;
+//   lastName: String;
+//   bhIn: String;
+//   poolMonth: String;
+//   poolYear: String;
+//   email: String;
+//   blackholedAt: String;
+// };
 const getCadets = async () => {
   try {
-    // const res = await fetch("http://localhost:3000/api/cadets", {
-    const res = await fetch("https://nextjs13mongodb.vercel.app/api/cadets", {
+    const res = await fetch("http://localhost:3000/api/cadets", {
+      // const res = await fetch("https://nextjs13mongodb.vercel.app/api/cadets", {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -52,7 +52,7 @@ export default async function CadetsList() {
           </div>
           <div className="flex gap-2">
             <RemoveBtn />
-            <Link href={`/EditCadet/${c._id}`}>
+            <Link href={{ pathname: `/EditCadet/${c._id}` }}>
               <HiPencilAlt size={24} />
             </Link>
           </div>

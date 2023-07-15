@@ -1,25 +1,26 @@
 import connectMongoDB from "@/libs/mongodb";
-import { NextRequest, NextResponse } from "next/server";
 import Cadet from "@/models/cadet";
 
 export const GET = async (req: Request) => {
-  //   GET one post
-  try {
-    const id = req.url.split("id=")[1];
+  console.log("One GET");
 
+  try {
+    const id = req.url.split("cadets/")[1];
+    console.log(id);
     await connectMongoDB();
     const cadet = await Cadet.findOne({ _id: id }).exec();
-    return NextResponse.json({ cadet }, { status: 202 });
+    return Response.json({ cadet }, { status: 202 });
   } catch (err) {
-    return NextResponse.json({ message: "Error", err }.err, { status: 500 });
+    return Response.json({ message: "Error, err" }, { status: 500 });
   }
 };
 
 export const POST = async (req: Request) => {
-  //   POST REQUEST to update a new post
+  console.log("One Post");
 
   try {
-    const id = req.url.split("id=")[1];
+    const id = req.url.split("cadets/")[1];
+    console.log(id);
     await connectMongoDB();
     const {
       login,
@@ -44,8 +45,8 @@ export const POST = async (req: Request) => {
       email,
       blackholedAt,
     });
-    return NextResponse.json({ message: "Cadet updated" }, { status: 200 });
+    return Response.json({ message: "Cadet updated" }, { status: 200 });
   } catch (err) {
-    return NextResponse.json({ message: "Error", err }, { status: 500 });
+    return Response.json({ message: "Error, err" }, { status: 500 });
   }
 };

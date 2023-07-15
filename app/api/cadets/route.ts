@@ -2,14 +2,15 @@ import connectMongoDB from "@/libs/mongodb";
 import Cadet from "@/models/cadet";
 import { NextResponse } from "next/server";
 
-export const GET = async () => {
+export const GET = async (req: Request, res: Response) => {
   // GET all Cadets
+  console.log("GET All");
   try {
     await connectMongoDB();
     const cadets = await Cadet.find();
-    return NextResponse.json({ cadets }, { status: 201 });
+    return Response.json({ cadets }, { status: 201 });
   } catch (err) {
-    return NextResponse.json({ message: "Error, err" }, { status: 500 });
+    return Response.json({ message: "Error, err" }, { status: 500 });
   }
 };
 

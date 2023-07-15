@@ -1,7 +1,7 @@
 import connectMongoDB from "@/libs/mongodb";
 import Cadet from "@/models/cadet";
 
-export const GET = async (req: Request) => {
+export const GET = async (req: Request, res: Response) => {
   console.log("One GET");
 
   try {

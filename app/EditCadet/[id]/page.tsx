@@ -14,7 +14,7 @@ type CadetType = {
   blackholedAt: string | number;
 };
 
-const getCadetById = async (id) => {
+const getCadetById = async (id: string) => {
   try {
     const res = await fetch(
       `https://nextjs13mongodb.vercel.app/api/cadets/${id}`,

@@ -26,6 +26,7 @@ const getCadetById = async (id: string) => {
     if (!res.ok) {
       throw new Error("Failed to Fetch Data");
     }
+    console.log(res.json());
     return res.json();
   } catch (err) {
     console.log(err);

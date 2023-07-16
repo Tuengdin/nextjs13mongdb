@@ -52,16 +52,21 @@ export default async function EditCadet(params: any) {
   } = cadet;
   console.log(cadet);
   return (
-    <EditCadetForm
-      login={cadet.login}
-      level={cadet.level}
-      firstName={cadet.firstName}
-      lastName={cadet.lastName}
-      bhIn={cadet.bhIn}
-      poolMonth={cadet.poolMonth}
-      poolYear={cadet.poolYear}
-      email={cadet.email}
-      blackholedAt={cadet.blackholedAt}
-    />
+    <>
+      <div className="bg-slate-200/75 p-4  my-3 flex justify-between gap-5 items-start">
+        <div>
+          <h2 className="font-bold text-2xl">Login: {cadet.login}</h2>
+          <div>Firstname: {cadet.firstName}</div>
+          <div>Lastname: {cadet.lastName}</div>
+          <div>Email: {cadet.email}</div>
+          <div>Level: {cadet.level}</div>
+          <div>Blackhole in: {cadet.bhIn}</div>
+          <div>Pool Month: {cadet.poolMonth}</div>
+          <div>Pool Year: {cadet.poolYear}</div>
+          <div>Blackholed at: {cadet.blackholedAt}</div>
+        </div>
+        <div className="flex gap-2"></div>
+      </div>
+    </>
   );
 }

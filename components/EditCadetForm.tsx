@@ -41,7 +41,7 @@ export default function EditCadetForm(
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       const res = await fetch(

@@ -1,15 +1,12 @@
-import Link from "next/link";
-import { useParams } from "next/navigation";
-
 type CadetType = {
-  id: String;
-  login: String;
-  level: String;
-  firstName: String;
-  lastName: String;
-  bhIn: String;
-  poolMonth: String;
-  poolYear: String;
-  email: String;
-  blackholedAt: String;
+  id: string | number;
+  login: string;
+  level: string | number;
+  firstName: string;
+  lastName: string;
+  bhIn: string | number;
+  poolMonth: string;
+  poolYear: string | number;
+  email: string;
+  blackholedAt: string | number;
 };
